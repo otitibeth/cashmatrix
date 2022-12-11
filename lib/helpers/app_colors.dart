@@ -14,6 +14,6 @@ class Pallete {
   static const texformtBorder = Color(0xff1FEE8520);
   static const scaffold = Color(0xffF5F5F5);
   static const obscure = Color(0xff45163B50);
-  // static const textFill = Color(0xff0DEE8520);
-  // static const textFill = Color(0xff0DEE8520);
+  static const adPoster = Color(0xffD9D9D9);
+  static const actions = Color(0xff0D163B50);
 }

@@ -23,7 +23,7 @@ class _FirstScreenState extends State<FirstScreen> {
   }
 
   startTimer() async {
-    var duration = const Duration(seconds: 4);
+    var duration = const Duration(seconds: 6);
     return Timer(duration, route);
   }
 

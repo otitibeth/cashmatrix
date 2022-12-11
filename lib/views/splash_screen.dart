@@ -1,4 +1,5 @@
 import 'package:cashmatrix/helpers/app_colors.dart';
+import 'package:cashmatrix/views/login_screen.dart';
 import 'package:cashmatrix/widgets/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -38,6 +39,9 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void onButtonTapped(int page) {
     controller.jumpToPage(page);
+    setState(() {
+      _selectedIndex = page;
+    });
   }
 
   @override
@@ -54,22 +58,33 @@ class _SplashScreenState extends State<SplashScreen> {
             titleTextColor: Pallete.darkBlue,
             buttonColor: Pallete.white,
             activeDotColor: Pallete.blue,
-            // onButtonTapped: onButtonTapped,
+            onButtonTapped: () {
+              onPageChanged(1);
+            },
           ),
           Splash(
-              image: 'assets/images/splash2.png',
-              controller: controller,
-              color: Pallete.darkBlue,
-              titleTextColor: Pallete.primary,
-              buttonColor: Pallete.primary,
-              activeDotColor: Pallete.primary),
+            image: 'assets/images/splash2.png',
+            controller: controller,
+            color: Pallete.darkBlue,
+            titleTextColor: Pallete.primary,
+            buttonColor: Pallete.primary,
+            activeDotColor: Pallete.primary,
+            onButtonTapped: () {
+              onPageChanged(2);
+            },
+          ),
           Splash(
-              image: 'assets/images/splash3.png',
-              controller: controller,
-              color: Pallete.primary,
-              titleTextColor: Pallete.darkBlue,
-              buttonColor: Pallete.white,
-              activeDotColor: Pallete.blue)
+            image: 'assets/images/splash3.png',
+            controller: controller,
+            color: Pallete.primary,
+            titleTextColor: Pallete.darkBlue,
+            buttonColor: Pallete.white,
+            activeDotColor: Pallete.blue,
+            onButtonTapped: () {
+              Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (context) => const LoginScreen()));
+            },
+          )
         ],
       ),
     );

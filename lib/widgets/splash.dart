@@ -9,26 +9,33 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class Splash extends StatelessWidget {
-  const Splash({
-    super.key,
-    required this.image,
-    required this.controller,
-    required this.color,
-    required this.titleTextColor,
-    required this.buttonColor,
-    required this.activeDotColor,
-    // required this.onButtonTapped
-  });
+  const Splash(
+      {super.key,
+      required this.image,
+      required this.controller,
+      required this.color,
+      required this.titleTextColor,
+      required this.buttonColor,
+      required this.activeDotColor,
+      required this.onButtonTapped});
   final String image;
   final PageController controller;
   final Color color;
   final Color titleTextColor;
   final Color buttonColor;
   final Color activeDotColor;
-  // final void Function(int) onButtonTapped;
+  final VoidCallback onButtonTapped;
 
   @override
   Widget build(BuildContext context) {
+//     void onAddButtonTapped(int index) {
+
+//   // use this to animate to the page
+//   controller.animateToPage(index);
+
+//   // or this to jump to it without animating
+//   pageController.jumpToPage(index);
+// }
     return Stack(
       children: [
         SizedBox(
@@ -122,7 +129,9 @@ class Splash extends StatelessWidget {
                     ),
                     const Spacer(),
                     InkWell(
-                        // onTap: onButtonTapped,
+                        onTap: () {
+                          // onButtonTapped();
+                        },
                         child:
                             SvgPicture.asset('assets/svgs/arrow_forward.svg')),
                     SizedBox(
